@@ -19,7 +19,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-from http import HTTPMethod
+# from http import HTTPMethod
 
 
 class Advertiser:
@@ -32,7 +32,7 @@ class Advertiser:
             params = {}
         params["advertiser_ids"]: advertiser_ids
         url = self.client.build_url(self.advertiser_base_url, "info/")
-        return self.client.get(HTTPMethod.GET, url, params)
+        return self.client.get("GET", url, params)
 
     def get_current_advertiser_info(self, params=None):
         return self.get_advertiser_info(advertiser_ids=[self.client.advertiser_id], params=params or {})
