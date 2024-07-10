@@ -35,7 +35,7 @@ class TikTokBusinessClient:
     """TikTok Buisness client used to configure settings and fetch services."""
 
     _session = None
-    BUISNESS_URL = "https://business-api.tiktok.com/open_api"
+    BUSINESS_URL = "https://business-api.tiktok.com/open_api"
     SANDBOX_URL = "https://sandbox-ads.tiktok.com/open_api"
     VERSION = "v1.3"
     DEFAULT_ACCESS_TOKEN_FILE_PATH = os.path.join(os.path.expanduser("~"), os.path.join(".tiktok", "access_token.json"))
@@ -43,7 +43,7 @@ class TikTokBusinessClient:
     def __init__(self, access_token, advertiser_id, sandbox=False):
         self.__access_token = access_token
         self.advertiser_id = str(advertiser_id)
-        self.base_url = self.SANDBOX_URL if sandbox else self.BUISNESS_URL
+        self.base_url = self.SANDBOX_URL if sandbox else self.BUSINESS_URL
         self.base_url = self.build_url(self.base_url, self.VERSION)
 
         if not self._session:
